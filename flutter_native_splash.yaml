@@ -1,0 +1,7 @@
+flutter_native_splash: 
+  image: assets/image/my_tasks.png
+  color: "#1a1830"
+  web: false
+  android-13:
+    image: assets/image/my_tasks.png
+    color: "#1a1830"
