@@ -13,7 +13,7 @@ class _Home extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
-        backgroundColor: Color.fromARGB(255, 249, 249, 249),
+        backgroundColor: Color(0xFFF9F9F9),
         elevation: 0, 
         title: const Text('Home', style: TextStyle(color: Colors.black87),),
         leading: const Icon(Icons.menu, color: Colors.black87,),
@@ -31,8 +31,8 @@ class _Home extends State<Home> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromARGB(255, 249, 249, 249),
-                Color.fromARGB(255, 251, 251, 251),
+                Color(0xFFF9F9F9),
+                Color(0xFFFBFBFB),
                 ],
               )
             ),

@@ -44,8 +44,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Color.fromARGB(255, 68, 68, 68),
-                Color.fromARGB(255, 37, 37, 37),
+                Color(0xFF444444),
+                Color(0xFF252525),
                 ],
               )
             ),
@@ -61,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       'by dddeeddd',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Color.fromARGB(255, 177, 177, 177)
+                        color: Color(0xFFB1B1B1)
                         ),
                       ),
                 ]
