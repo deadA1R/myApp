@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/theme.dart';
 import 'package:myapp/models/weather_models.dart';
 import 'package:myapp/services/weather_service.dart';
 
@@ -44,7 +45,7 @@ class _WeatherInHomePageState extends State<WeatherInHomePage> {
           width: double.infinity,
           height: 100,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: secondaryColor,
             borderRadius: BorderRadius.all(Radius.circular(50.0)
 
             )

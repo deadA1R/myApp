@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myapp/components/theme.dart';
 import 'package:myapp/pages/home.dart';
-import 'package:myapp/pages/login_page.dart';
+
 
 
 class SplashScreen extends StatefulWidget {
@@ -44,8 +45,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Color(0xFF444444),
-                Color(0xFF252525),
+                gradientFirstColor,
+                gradientSecondColor,
                 ],
               )
             ),
@@ -54,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:  <Widget>[
                       Image(
-                        image: AssetImage('assets/image/my_tasks.png'),
+                        image: AssetImage('assets/image/logo.png'),
                         ),
                         SizedBox(height: 16.0),
                       Text(

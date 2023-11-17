@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/home_page_header.dart';
-import 'package:myapp/components/home_page_task_manager.dart';
+import 'package:get/get.dart';
 import 'package:myapp/components/theme.dart';
 
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class AddTaskPage extends StatelessWidget {
+  const AddTaskPage({super.key});
 
-  @override
-  State<Home> createState() => _Home();
-}
-
-class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +21,6 @@ class _Home extends State<Home> {
                 ],
               )
             ),
-              child: const Column(
-                children: <Widget>[
-                      BodyHomePage(),
-                      SizedBox(height: 10),
-                      TaskManagerInHomePage(),    
-                ]
-              )
         ),
     );
   }
