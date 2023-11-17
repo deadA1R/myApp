@@ -20,6 +20,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  intl: 
+  get: 
+  google_fonts:
+  date_picker_timeline: 
+  http:
+  geolocator:
+  geocoding:
+  lottie:
   flutter_lints: ^2.0.0
 
 # The following section is specific to Flutter packages.
