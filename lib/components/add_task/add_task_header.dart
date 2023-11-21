@@ -21,7 +21,7 @@ class _AddTaskBodyPageState extends State<AddTaskBodyPage> {
         decoration: const BoxDecoration(
           color: secondaryColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
+            bottomLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           ),
         ),
