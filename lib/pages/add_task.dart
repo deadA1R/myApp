@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:myapp/components/add_task/add_task_header.dart';
 import 'package:myapp/components/theme.dart';
 
 
-class AddTaskPage extends StatelessWidget {
+class AddTaskPage extends StatefulWidget {
   const AddTaskPage({super.key});
 
+  @override
+  State<AddTaskPage> createState() => _AddTaskPageState();
+}
+
+class _AddTaskPageState extends State<AddTaskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +26,13 @@ class AddTaskPage extends StatelessWidget {
                 ],
               )
             ),
+              child: const Column(
+                children: <Widget>[
+                      AddTaskBodyPage()   
+                ]
+              )
         ),
     );
   }
+  
 }

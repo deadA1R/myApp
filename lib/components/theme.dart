@@ -22,6 +22,7 @@ TextStyle get headingStyle{
   return GoogleFonts.lato(
     textStyle: const TextStyle(
       fontSize: 28,
+      color: primaryColor,
       fontWeight: FontWeight.bold,
 
     )

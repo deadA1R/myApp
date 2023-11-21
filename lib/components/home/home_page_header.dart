@@ -4,7 +4,6 @@ import 'package:myapp/components/button_add.dart';
 import 'package:myapp/components/theme.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:get/get.dart';
 import 'package:myapp/pages/add_task.dart';
 
 

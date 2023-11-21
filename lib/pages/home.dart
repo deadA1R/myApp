@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/components/home_page_header.dart';
-import 'package:myapp/components/home_page_task_manager.dart';
+import 'package:myapp/components/home/home_page_header.dart';
+import 'package:myapp/components/home/home_page_task_manager.dart';
 import 'package:myapp/components/theme.dart';
 
 
