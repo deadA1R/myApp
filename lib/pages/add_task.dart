@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components/add_task/add_task_header.dart';
 import 'package:myapp/components/theme.dart';
-import 'package:myapp/components/my_textfield.dart';
 
 
 class AddTaskPage extends StatefulWidget {
@@ -27,7 +26,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 ],
               )
             ),
-              child: Column(
+              child: const Column(
                 children: <Widget>[
                       AddTaskBodyPage(), 
                       

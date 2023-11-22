@@ -18,6 +18,7 @@ dependencies:
   cloud_firestore: ^4.13.2
   firebase_core: ^2.20.0
   firebase_storage: ^11.4.0
+  firebase_auth: 
   intl: 
   get: 
   google_fonts:

@@ -29,3 +29,34 @@ TextStyle get headingStyle{
   );
 }
 
+TextStyle get headingLoginPageStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: Color.fromRGBO(62, 62, 62, 1),
+      fontSize: 54,
+      fontWeight: FontWeight.bold,
+
+    )
+  );
+}
+
+TextStyle get subHeadingLoginPageStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: Color.fromRGBO(150, 150, 150, 1),
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+
+    )
+  );
+}
+
+TextStyle get titleTextFieldStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: Color.fromRGBO(150, 150, 150, 1),
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+    )
+  );
+}

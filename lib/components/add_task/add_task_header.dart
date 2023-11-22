@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/components/theme.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:intl/intl.dart';
+import 'package:myapp/pages/home.dart';
 
 
 
@@ -28,7 +29,9 @@ class _AddTaskBodyPageState extends State<AddTaskBodyPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            _appbarAddTask(),
             _headerAddTask(),
+            
           ],
         ),
       ),
@@ -59,6 +62,20 @@ class _AddTaskBodyPageState extends State<AddTaskBodyPage> {
           
         ],
       ),
+    );
+  }
+
+  _appbarAddTask(){
+    return Container(
+      child: BackButton(
+        color: primaryColor,
+        onPressed: (){
+          Navigator.pop(
+            context,
+            MaterialPageRoute(builder: (context) => const Home())
+          );
+        },
+        ),
     );
   }
 
