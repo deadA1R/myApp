@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myapp/components/theme.dart';
-import 'package:myapp/pages/login_register_page.dart';
+import 'package:myapp/pages/login_page.dart';
 
 
 

@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/components/theme.dart';
+import 'package:myapp/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,7 +18,8 @@ class LoginPageState extends State <LoginPage> {
     return Scaffold( 
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(5),
+          height: h,
+          padding: const EdgeInsets.only(left: 5, right: 5, top: 15),
           decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -31,23 +34,22 @@ class LoginPageState extends State <LoginPage> {
             children: [
               Container(
                 width: w,
-                height: h * 0.25,
+                height: h * 0.35,
                 child: const Center(
                   child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:  <Widget>[
                         Image(
                           image: AssetImage('assets/image/logo.png'),
-                          width: 175,
-                          height: 175,
+                          width: 250,
+                          height: 250,
                           ),
                   ]
                   )
               )
               ),  
               Container(
-                margin:const EdgeInsets.only(bottom: 25),
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(35),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: secondaryColor,
@@ -174,13 +176,55 @@ class LoginPageState extends State <LoginPage> {
                       ]
                     ),
                     SizedBox(height:20),
-                    
+                    Center(
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(20),
+                        decoration: const BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: 
+                                    BorderRadius.only(
+                                      bottomLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15),
+                                      topLeft: Radius.circular(15)
+                                      ),
+                              ),
+                        child: Center(
+                          child: Text(
+                            "Sign In",
+                            style: btnLoginStyle,
+                            ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: h*0.08,),
+                    Center(
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Don\'t have an account?",
+                          style: subRegTextLoginStyle,
+                          children: [
+                            TextSpan(
+                              text: " Create",
+                              style: regTextLoginStyle,
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                                  );
+                                },
+                            ),
+                          ]
+                          
+                        ),
+                        
+                      ),
+                    )
                   ]
                 )
               ),
-              Container(
-
-              ),
+              
             ]
           ),
         ),

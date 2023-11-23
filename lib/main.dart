@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/home.dart';
 import 'package:myapp/pages/splash_screen.dart';
-import 'package:myapp/pages/login_register_page.dart';
+import 'package:myapp/pages/login_page.dart';
 import 'package:myapp/pages/add_task.dart';
 import 'package:firebase_core/firebase_core.dart';
 

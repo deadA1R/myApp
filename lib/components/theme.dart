@@ -60,3 +60,34 @@ TextStyle get titleTextFieldStyle{
     )
   );
 }
+
+TextStyle get btnLoginStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      fontSize: 20,
+      color: secondaryColor,
+      fontWeight: FontWeight.bold,
+
+    )
+  );
+}
+
+TextStyle get subRegTextLoginStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: Color.fromRGBO(150, 150, 150, 1),
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+    )
+  );
+}
+
+TextStyle get regTextLoginStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: primaryColor,
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+    )
+  );
+}
