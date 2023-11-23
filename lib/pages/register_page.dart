@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/components/theme.dart';
+import 'package:myapp/pages/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -16,7 +18,6 @@ class  RegisterPageState extends State < RegisterPage> {
     return Scaffold( 
       body: SingleChildScrollView(
         child: Container(
-          height: h,
           padding: const EdgeInsets.only(left: 5, right: 5, top: 15),
           decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -31,20 +32,34 @@ class  RegisterPageState extends State < RegisterPage> {
           child: Column(
             children: [
               Container(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 width: w,
-                height: h * 0.35,
-                child: const Center(
-                  child: Column(
+                height: h * 0.15,
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  <Widget>[
-                        Image(
-                          image: AssetImage('assets/image/logo.png'),
-                          width: 250,
-                          height: 250,
+                  children:[
+                    Row( 
+                      children: [
+                        BackButton(
+                          color: secondaryColor,
+                          onPressed: (){
+                            Navigator.pop(
+                              context,
+                              MaterialPageRoute(builder: (context) => LoginPage())
+                            );
+                          },
+                        ),                  
+                        Container(
+                          margin: EdgeInsets.only(left: 100),
+                          child: Text(
+                              'Sign Up',
+                              style: headingRegPageStyle,
                           ),
+                        ),
+                      ],
+                    ),                      
                   ]
-                  )
-              )
+                )
               ),  
               Container(
                 padding: const EdgeInsets.all(35),
@@ -58,16 +73,17 @@ class  RegisterPageState extends State < RegisterPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children:[
                     Text(
-                      'hi',
+                      'Welcome!',
                       style: headingLoginPageStyle
                     ),
                     Text(
-                      'Sign into your account',
+                      'Create your account',
                       style: subHeadingLoginPageStyle,
                     ),
-                    SizedBox(height: 50,),
+                    SizedBox(height: 20,),
+                    //first name
                     Text(
-                      "Enter your email address:",
+                      "First name:",
                       style: titleTextFieldStyle,
                     ),
                     SizedBox(height:5),
@@ -89,6 +105,7 @@ class  RegisterPageState extends State < RegisterPage> {
                       ),
                       child: const TextField(
                         decoration: InputDecoration(
+                          hintText: "your name",
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
                               BorderRadius.only(
@@ -114,9 +131,211 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10,),
+                    //surname
                     Text(
-                      "Enter your password:",
+                      "Last name:",
+                      style: titleTextFieldStyle,
+                    ),
+                    SizedBox(height:5),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: 
+                            BorderRadius.only(
+                              bottomLeft: Radius.circular(15),
+                              ),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 15,
+                            offset: Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.6),
+                          )
+                        ]
+                      ),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          hintText: "your surname",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height:10),
+                    //username
+                    Text(
+                      "Username:",
+                      style: titleTextFieldStyle,
+                    ),
+                    SizedBox(height:5),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: 
+                            BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              bottomRight: Radius.circular(15)
+                              ),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 15,
+                            offset: Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.6),
+                          )
+                        ]
+                      ),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          hintText: "your_username",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15)
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15)
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    //email
+                    Text(
+                      "Email:",
+                      style: titleTextFieldStyle,
+                    ),
+                    SizedBox(height:5),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: 
+                            BorderRadius.only(
+                              bottomRight: Radius.circular(15),
+                              topRight: Radius.circular(15)
+                              ),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 15,
+                            offset: Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.6),
+                          )
+                        ]
+                      ),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          hintText: "example@example.com",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                bottomRight: Radius.circular(15),
+                                topRight: Radius.circular(15)
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                bottomRight: Radius.circular(15),
+                                topRight: Radius.circular(15)
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    //password
+                    Text(
+                      "Password:",
+                      style: titleTextFieldStyle,
+                    ),
+                    SizedBox(height:5),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: secondaryColor,
+                        borderRadius: 
+                            BorderRadius.only(
+                              bottomLeft: Radius.circular(15),
+                              topRight: Radius.circular(15)
+                              ),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 15,
+                            offset: Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.6),
+                          )
+                        ]
+                      ),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: 
+                              BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                              ),
+                            borderSide: BorderSide(
+                              color: secondaryColor,
+                              width: 1.0,
+                            ),   
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    //confirm password
+                    Text(
+                      "Confirm password:",
                       style: titleTextFieldStyle,
                     ),
                     SizedBox(height:5),
@@ -163,16 +382,6 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height:10),
-                    Row(
-                      children: [
-                        Expanded(child: Container(),),
-                        Text(
-                          "Forgot your Password?",
-                          style: titleTextFieldStyle,
-                        ),
-                      ]
-                    ),
                     SizedBox(height:20),
                     Center(
                       child: Container(
@@ -189,22 +398,29 @@ class  RegisterPageState extends State < RegisterPage> {
                               ),
                         child: Center(
                           child: Text(
-                            "Sign In",
+                            "Sign Up",
                             style: btnLoginStyle,
                             ),
                         ),
                       ),
                     ),
-                    SizedBox(height: h*0.08,),
+                    SizedBox(height: h*0.05,),
                     Center(
                       child: RichText(
                         text: TextSpan(
-                          text: "Don\'t have an account?",
+                          text: "Already have any account?",
                           style: subRegTextLoginStyle,
                           children: [
                             TextSpan(
-                              text: " Create",
+                              text: " Sign In",
                               style: regTextLoginStyle,
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.pop(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => LoginPage()),
+                                  );
+                                },
                             ),
                           ]
                         ),

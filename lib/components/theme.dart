@@ -43,7 +43,7 @@ TextStyle get headingLoginPageStyle{
 TextStyle get subHeadingLoginPageStyle{
   return GoogleFonts.lato(
     textStyle: const TextStyle(
-      color: Color.fromRGBO(150, 150, 150, 1),
+      color: Color.fromRGBO(107, 107, 107, 1),
       fontSize: 16,
       fontWeight: FontWeight.bold,
 
@@ -88,6 +88,17 @@ TextStyle get regTextLoginStyle{
       color: primaryColor,
       fontSize: 15,
       fontWeight: FontWeight.bold,
+    )
+  );
+}
+
+TextStyle get headingRegPageStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: secondaryColor,
+      fontSize: 36,
+      fontWeight: FontWeight.bold,
+
     )
   );
 }
