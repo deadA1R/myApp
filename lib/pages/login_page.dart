@@ -67,17 +67,17 @@ class LoginPageState extends State <LoginPage> {
                       'Sign into your account',
                       style: subHeadingLoginPageStyle,
                     ),
-                    SizedBox(height: 50,),
+                    const SizedBox(height: 50,),
                     Text(
                       "Enter your email address:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               topLeft: Radius.circular(15),
                               topRight: Radius.circular(15)
                               ),
@@ -116,24 +116,24 @@ class LoginPageState extends State <LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       "Enter your password:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               bottomLeft: Radius.circular(15),
                               bottomRight: Radius.circular(15)
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -165,7 +165,7 @@ class LoginPageState extends State <LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height:10),
+                    const SizedBox(height:10),
                     Row(
                       children: [
                         Expanded(child: Container(),),
@@ -175,11 +175,11 @@ class LoginPageState extends State <LoginPage> {
                         ),
                       ]
                     ),
-                    SizedBox(height:20),
+                    const SizedBox(height:20),
                     Center(
                       child: Container(
                         width: double.infinity,
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         decoration: const BoxDecoration(
                                 color: primaryColor,
                                 borderRadius: 

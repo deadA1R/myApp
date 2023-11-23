@@ -50,7 +50,7 @@ class  RegisterPageState extends State < RegisterPage> {
                           },
                         ),                  
                         Container(
-                          margin: EdgeInsets.only(left: 100),
+                          margin: const EdgeInsets.only(left: 100),
                           child: Text(
                               'Sign Up',
                               style: headingRegPageStyle,
@@ -80,25 +80,25 @@ class  RegisterPageState extends State < RegisterPage> {
                       'Create your account',
                       style: subHeadingLoginPageStyle,
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     //first name
                     Text(
                       "First name:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               topLeft: Radius.circular(15),
                               topRight: Radius.circular(15)
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -131,24 +131,24 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     //surname
                     Text(
                       "Last name:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               bottomLeft: Radius.circular(15),
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -180,25 +180,25 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height:10),
+                    const SizedBox(height:10),
                     //username
                     Text(
                       "Username:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               topLeft: Radius.circular(15),
                               bottomRight: Radius.circular(15)
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -231,25 +231,25 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     //email
                     Text(
                       "Email:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               bottomRight: Radius.circular(15),
                               topRight: Radius.circular(15)
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -282,25 +282,25 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     //password
                     Text(
                       "Password:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               bottomLeft: Radius.circular(15),
                               topRight: Radius.circular(15)
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -332,25 +332,25 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     //confirm password
                     Text(
                       "Confirm password:",
                       style: titleTextFieldStyle,
                     ),
-                    SizedBox(height:5),
+                    const SizedBox(height:5),
                     Container(
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
-                            BorderRadius.only(
+                            const BorderRadius.only(
                               bottomLeft: Radius.circular(15),
                               bottomRight: Radius.circular(15)
                               ),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 15,
-                            offset: Offset(1, 1),
+                            offset: const Offset(1, 1),
                             color: Colors.grey.withOpacity(0.6),
                           )
                         ]
@@ -382,11 +382,11 @@ class  RegisterPageState extends State < RegisterPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height:20),
+                    const SizedBox(height:20),
                     Center(
                       child: Container(
                         width: double.infinity,
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         decoration: const BoxDecoration(
                                 color: primaryColor,
                                 borderRadius: 
