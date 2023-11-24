@@ -102,3 +102,25 @@ TextStyle get headingRegPageStyle{
     )
   );
 }
+
+TextStyle get headingResetPageStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: Color.fromRGBO(62, 62, 62, 1),
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+
+    )
+  );
+}
+
+TextStyle get subHeadingResetPageStyle{
+  return GoogleFonts.lato(
+    textStyle: const TextStyle(
+      color: Color.fromRGBO(107, 107, 107, 1),
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+
+    )
+  );
+}

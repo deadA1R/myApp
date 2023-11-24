@@ -31,7 +31,7 @@ class AuthController extends GetxController{
     }
   }
 
-  void register(String email, password)async{
+  register(String email, password)async{
     try{
       await auth.createUserWithEmailAndPassword(email: email, password: password);
     }catch(e){
@@ -83,5 +83,49 @@ class AuthController extends GetxController{
 
   void logOut()async{
     await auth.signOut();
+  }
+
+  void resetPassword(String email)async{
+    try{
+      await auth.sendPasswordResetEmail(email: email);
+      Get.snackbar(
+      "About User", 
+      "User message", 
+      backgroundColor: primaryColor,
+      snackPosition: SnackPosition.BOTTOM,
+      titleText: const Text(
+        "Password reset email has been sent.",
+        style: TextStyle(
+          color: secondaryColor,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      messageText: const Text(
+        "If you have not received the email, check whether the data is correct",
+        style: TextStyle(
+          color: secondaryColor,
+        ),
+      ),
+    );
+    }catch(e){
+    Get.snackbar(
+      "About User", 
+      "User message", 
+      backgroundColor: primaryColor,
+      snackPosition: SnackPosition.BOTTOM,
+      titleText: const Text(
+        "Reset password failed",
+        style: TextStyle(
+          color: secondaryColor,
+        ),
+      ),
+      messageText: Text(
+        e.toString(),
+        style: const TextStyle(
+          color: secondaryColor,
+        ),
+      ),
+    );
+    }
   }
 }

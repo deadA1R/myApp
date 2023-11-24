@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +21,10 @@ class  RegisterPageState extends State < RegisterPage> {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var passwordConfirmController = TextEditingController();
+    var usernameController = TextEditingController();
+    var nameController = TextEditingController();
+    var surnameController = TextEditingController();
+    final _firestore = FirebaseFirestore.instance;
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold( 
@@ -51,7 +57,7 @@ class  RegisterPageState extends State < RegisterPage> {
                           onPressed: (){
                             Navigator.pop(
                               context,
-                              MaterialPageRoute(builder: (context) => LoginPage())
+                              MaterialPageRoute(builder: (context) => const LoginPage())
                             );
                           },
                         ),                  
@@ -109,8 +115,9 @@ class  RegisterPageState extends State < RegisterPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
                           hintText: "your name",
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
@@ -159,8 +166,9 @@ class  RegisterPageState extends State < RegisterPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: surnameController,
+                        decoration: const InputDecoration(
                           hintText: "your surname",
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
@@ -209,8 +217,9 @@ class  RegisterPageState extends State < RegisterPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: usernameController,
+                        decoration: const InputDecoration(
                           hintText: "your_username",
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
@@ -397,7 +406,13 @@ class  RegisterPageState extends State < RegisterPage> {
                     GestureDetector(
                       onTap: (){
                         if (passwordConfirmController.text == passwordController.text){
-                          AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());  
+                          AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+                          _firestore.collection('users').add({
+                            'email': emailController.text, 
+                            'name': nameController.text,
+                            'surname': surnameController.text,
+                            'username': usernameController.text,
+                            });
                         }
                         else{
                           Get.snackbar(
@@ -411,9 +426,9 @@ class  RegisterPageState extends State < RegisterPage> {
                                 color: secondaryColor,
                               ),
                             ),
-                            messageText: Text(
+                            messageText: const Text(
                               "Passwords do not match each other, please try again",
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: secondaryColor,
                               ),
                             ),
@@ -453,7 +468,12 @@ class  RegisterPageState extends State < RegisterPage> {
                               text: " Sign In",
                               style: regTextLoginStyle,
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () => Get.back(),
+                                ..onTap = () {
+                                  Navigator.pop(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const LoginPage())
+                                  );
+                                },
                             ),
                           ]
                         ),
