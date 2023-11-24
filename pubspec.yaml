@@ -15,18 +15,38 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.3.4
+  cloud_firestore: ^4.13.2
+  firebase_core: ^2.20.0
+  firebase_storage: ^11.4.0
+  firebase_auth: ^4.14.1 
+  intl: 
+  get: ^4.6.6 
+  google_fonts:
+  date_picker_timeline: 
+  http:
+  geolocator:
+  geocoding:
+  lottie:
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^2.0.0
 
+flutter_icons:
+  android: "launcher_icons"
+  ios: true
+  image_path: "assets/image/logo_icons.webp"
 # The following section is specific to Flutter packages.
 flutter:
   uses-material-design: true
   assets:
     - assets/image/my_tasks.png
+    - assets/image/logo.png
+    - assets/image/logo_icons.webp
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
