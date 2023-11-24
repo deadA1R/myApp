@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/auth.dart';
 import 'package:myapp/components/theme.dart';
 import 'package:myapp/pages/register_page.dart';
 
@@ -13,6 +14,8 @@ class LoginPage extends StatefulWidget {
 class LoginPageState extends State <LoginPage> {
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold( 
@@ -89,8 +92,9 @@ class LoginPageState extends State <LoginPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: emailController,
+                        decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
                               BorderRadius.only(
@@ -138,8 +142,10 @@ class LoginPageState extends State <LoginPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
                               BorderRadius.only(
@@ -176,24 +182,29 @@ class LoginPageState extends State <LoginPage> {
                       ]
                     ),
                     const SizedBox(height:20),
-                    Center(
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(20),
-                        decoration: const BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: 
-                                    BorderRadius.only(
-                                      bottomLeft: Radius.circular(15),
-                                      bottomRight: Radius.circular(15),
-                                      topLeft: Radius.circular(15)
-                                      ),
+                    GestureDetector(
+                      onTap: () {
+                        AuthController.instance.login(emailController.text.trim(), passwordController.text.trim());
+                      },
+                      child: Center(
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(20),
+                          decoration: const BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: 
+                                      BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15),
+                                        topLeft: Radius.circular(15)
+                                        ),
+                                ),
+                          child: Center(
+                            child: Text(
+                              "Sign In",
+                              style: btnLoginStyle,
                               ),
-                        child: Center(
-                          child: Text(
-                            "Sign In",
-                            style: btnLoginStyle,
-                            ),
+                          ),
                         ),
                       ),
                     ),

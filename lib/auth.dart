@@ -1,32 +1,87 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/components/theme.dart';
+import 'package:myapp/pages/home.dart';
+import 'package:myapp/pages/login_page.dart';
 
-class Auth{
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  User? get currentUser =>  _firebaseAuth.currentUser;
+class AuthController extends GetxController{
+  // AuthController.intsance...
+  static AuthController instance = Get.find();
+  late Rx<User?> _user;
+  FirebaseAuth auth = FirebaseAuth.instance;
 
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  Future<void> signInWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
-    await _firebaseAuth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  @override
+  void onReady(){
+    super.onReady();
+    _user = Rx<User?>(auth.currentUser);
+    _user.bindStream(auth.userChanges());
+    ever(_user, _initialScreen);
+  } 
+
+  _initialScreen(User? user){
+    if(user == null){
+      print("Login page ");
+      Get.offAll(()=>LoginPage());
+    }
+    else{
+      Get.offAll(()=> Home());
+    }
   }
 
-  Future<void> createUserWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
-    await _firebaseAuth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  void register(String email, password)async{
+    try{
+      await auth.createUserWithEmailAndPassword(email: email, password: password);
+    }catch(e){
+      Get.snackbar(
+        "About User", 
+        "User message", 
+        backgroundColor: primaryColor,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: const Text(
+          "Account creation failed",
+          style: TextStyle(
+            color: secondaryColor,
+          ),
+        ),
+        messageText: Text(
+          e.toString(),
+          style: const TextStyle(
+            color: secondaryColor,
+          ),
+        ),
+      );
+    }
   }
 
-  Future<void> signOut() async{
-    await _firebaseAuth.signOut();
+  void login(String email, password)async{
+    try{
+      await auth.signInWithEmailAndPassword(email: email, password: password);
+    }catch(e){
+      Get.snackbar(
+        "About Login", 
+        "Login message", 
+        backgroundColor: primaryColor,
+        snackPosition: SnackPosition.BOTTOM,
+        titleText: const Text(
+          "Login failed",
+          style: TextStyle(
+            color: secondaryColor,
+          ),
+        ),
+        messageText: Text(
+          e.toString(),
+          style: const TextStyle(
+            color: secondaryColor,
+          ),
+        ),
+      );
+    }
+  }
+
+  void logOut()async{
+    await auth.signOut();
   }
 }

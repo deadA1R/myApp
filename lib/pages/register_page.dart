@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/auth.dart';
 import 'package:myapp/components/theme.dart';
 import 'package:myapp/pages/login_page.dart';
 
@@ -11,8 +13,12 @@ class RegisterPage extends StatefulWidget {
 }
 
 class  RegisterPageState extends State < RegisterPage> {
+  
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
+    var passwordConfirmController = TextEditingController();
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold( 
@@ -238,7 +244,7 @@ class  RegisterPageState extends State < RegisterPage> {
                       style: titleTextFieldStyle,
                     ),
                     const SizedBox(height:5),
-                    Container(
+                    Container(  
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: 
@@ -254,8 +260,9 @@ class  RegisterPageState extends State < RegisterPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: emailController,
+                        decoration: const InputDecoration(
                           hintText: "example@example.com",
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
@@ -305,8 +312,10 @@ class  RegisterPageState extends State < RegisterPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: passwordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
                               BorderRadius.only(
@@ -355,8 +364,10 @@ class  RegisterPageState extends State < RegisterPage> {
                           )
                         ]
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        obscureText: true,
+                        controller: passwordConfirmController,
+                        decoration: const InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderRadius: 
                               BorderRadius.only(
@@ -383,24 +394,51 @@ class  RegisterPageState extends State < RegisterPage> {
                       ),
                     ),
                     const SizedBox(height:20),
-                    Center(
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(20),
-                        decoration: const BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: 
-                                    BorderRadius.only(
-                                      bottomLeft: Radius.circular(15),
-                                      bottomRight: Radius.circular(15),
-                                      topLeft: Radius.circular(15)
-                                      ),
+                    GestureDetector(
+                      onTap: (){
+                        if (passwordConfirmController.text == passwordController.text){
+                          AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());  
+                        }
+                        else{
+                          Get.snackbar(
+                            "About User", 
+                            "User message", 
+                            backgroundColor: primaryColor,
+                            snackPosition: SnackPosition.BOTTOM,
+                            titleText: const Text(
+                              "Account creation failed",
+                              style: TextStyle(
+                                color: secondaryColor,
                               ),
-                        child: Center(
-                          child: Text(
-                            "Sign Up",
-                            style: btnLoginStyle,
                             ),
+                            messageText: Text(
+                              "Passwords do not match each other, please try again",
+                              style: const TextStyle(
+                                color: secondaryColor,
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                      child: Center(
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(20),
+                          decoration: const BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: 
+                                      BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15),
+                                        topLeft: Radius.circular(15)
+                                        ),
+                                ),
+                          child: Center(
+                            child: Text(
+                              "Sign Up",
+                              style: btnLoginStyle,
+                              ),
+                          ),
                         ),
                       ),
                     ),
@@ -415,12 +453,7 @@ class  RegisterPageState extends State < RegisterPage> {
                               text: " Sign In",
                               style: regTextLoginStyle,
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Navigator.pop(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => LoginPage()),
-                                  );
-                                },
+                                ..onTap = () => Get.back(),
                             ),
                           ]
                         ),
